@@ -1,0 +1,11 @@
+[project]
+name = "ibotta-takehome"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "pydantic==2.7.1",
+    "pytest==8.2.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

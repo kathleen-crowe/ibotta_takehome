@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: ibotta-takehome
+Version: 0.1.0
+Requires-Python: >=3.9
+Requires-Dist: pydantic==2.7.1
+Requires-Dist: pytest==8.2.0

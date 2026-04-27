@@ -1,0 +1,17 @@
+README.txt
+pyproject.toml
+src/pipeline.py
+src/ibotta_takehome.egg-info/PKG-INFO
+src/ibotta_takehome.egg-info/SOURCES.txt
+src/ibotta_takehome.egg-info/dependency_links.txt
+src/ibotta_takehome.egg-info/requires.txt
+src/ibotta_takehome.egg-info/top_level.txt
+src/models/__init__.py
+src/models/customer_offer_redemptions.py
+src/models/customer_offer_rewards.py
+src/models/customer_offers.py
+src/models/offer_rewards.py
+src/utils/csv_loader.py
+src/utils/pydantic_model_sqlite_table.py
+src/utils/sqlite_db.py
+tests/test_csv_loader.py
