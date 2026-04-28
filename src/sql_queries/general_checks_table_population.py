@@ -1,6 +1,6 @@
 from utils.sqlite_db import SQLiteDB
 
-database_name = "ibotta_test2.db"
+database_name = "ibotta.db"
 db = SQLiteDB(database_name)
 
 offer_rewards_table_info = db.get_columns("offer_rewards")

@@ -17,7 +17,6 @@ uv pip install -e .
 
 to check package installation: uv pip list
 
-
 # Testing
 uv run pytest
 
@@ -36,23 +35,21 @@ uv run src/sql_queries/4_total_redemption_by_customer.py
 
 # Project structure 
 ibotta_takehome/
-├── pyproject.toml   ← REQUIRED
+├── pyproject.toml
 ├── src/
-│   ├── models/
-│   ├── db/
+│   ├── csv_data/ # raw input files
+│   ├── models/ # Pydantic data models
+│   ├── sql_queries/ # Sql queries for part II (and some provided for db population checks)
 │   ├── utils/
-├── tests/
-├── main.py
+├── tests/ # unit tests for models, pipeline utils and db functions
+├── pipeline.py # pipeline entry point
 
-src/
-  models/        # Pydantic data models
-  db/            # SQLite wrapper
-  utils/         # CSV loader + helpers
+I decided to build out a streamline data pipeline to insert into a sql lite database.
 
-tests/
-  models/        # unit tests for models
+I took the utility functions provided and built out a SQLiteDB class.  This class is used throughout the pipeline to create tables in the database, insert records, and also in the part II when accessing data from the database, these generalized DB functions can be used as an ORM type of layer to run SQL queries.
 
-data/
-  csv/           # raw input files
+I also build out other utility functions to use the Pydantic data models and translate those to be usable in a SQL lite DB, to make sure model types are handled in a way that is compatible with the database but still uses all the base functionality of Pydantic models to validate and enforce data structures.  Lastly, I turned the csv read function provided into it's own CSV reader class.  This is called in the pipeline to grab data from the raw csv files, I think having a built out class keeps the pipeline code super clean and readable, and also offers future flexibility for how we want to interact with raw data.  In this class, functions can be added to clean and transform the data, or the class can be expanded upon to include the reading of other types of data files that may be used in the future.
 
-main.py          # pipeline entry point
+The core of this data pipeline is the models.  I chose to use pydantic models because it provides a single source of truth between the raw data and the database.  By building out pydantic models for the data, this ensures the raw data will match what goes into the database and creates an easy to manage tie between the two for ongoing updates to the tables.  The models also allow easy testing on the data and validation enforcement around data types and what data needs to be present in the raw data.
+
+I ran all of these commands and inserted into ibotta_test2.db but updated all the code so you can run the pipeline from scratch into a the ibotta.db and see how the process works.

@@ -43,7 +43,11 @@ def db_getinfo(conn, tbl_name):
 
     return column_name_list
 
-# PLEASE DESCRIBE -
+# CSV Loader Function:
+# This function uses the db connection created above, a raw csv file path, and a destination table name to open and read the csv file using python's built in csv library.
+# Then the function builds a base SQL statement to INSERT into the using the proper columns names (first row of the csv) and creates a placeholder list for the values section of the SQL statement (?,?, etc) for the len of rows of the csv file
+# The function then iterates through the csv rows and uses the same column names to build the list of values
+# Lastly, using those formatted rows of values and the INSERT statement string - passes to the executemany function which does a bulk insert to the table
 def loadcsv(conn, file_name, tbl_name):
     # PLEASE DESCRIBE -
     csv_file = open(file_name)

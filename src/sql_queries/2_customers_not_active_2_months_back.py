@@ -1,6 +1,6 @@
 from utils.sqlite_db import SQLiteDB
 
-database_name = "ibotta_test2.db"
+database_name = "ibotta.db"
 db = SQLiteDB(database_name)
 
 # 2) Provide a list of customers that who haven't activated an offer in the last couple months?

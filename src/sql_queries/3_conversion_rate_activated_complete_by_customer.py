@@ -1,6 +1,6 @@
 from utils.sqlite_db import SQLiteDB
 
-database_name = "ibotta_test2.db"
+database_name = "ibotta.db"
 db = SQLiteDB(database_name)
 
 # 3) What is the conversion rate of activated to complete for each customer?

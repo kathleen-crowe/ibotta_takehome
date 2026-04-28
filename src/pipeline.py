@@ -22,7 +22,7 @@ data_to_populate = {
     },
 }
 
-database_name = "ibotta_test2.db"
+database_name = "ibotta.db"
 db = SQLiteDB(database_name)
 loader = CSVLoader()
 
