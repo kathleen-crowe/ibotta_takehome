@@ -3,37 +3,47 @@ Take home project for Ibotta Interview
 
 # Setup
 Clone Repo
+```
 git clone ...
 cd ibotta_takehome
+```
 
-Install uv (if not installed)
-curl -Ls https://astral.sh/uv/install.sh | sh
+Install uv (if not installed): 
+```curl -Ls https://astral.sh/uv/install.sh | sh```
 
-Create virtual ENV
-uv venv
+Create virtual ENV: ```uv venv```
 
-Install project dependencies
-uv pip install -e .
+Install project dependencies: ```uv pip install -e .```
 
-to check package installation: uv pip list
+to check package installation: ```uv pip list```
 
 # Testing
-uv run pytest
+```uv run pytest```
 
 # Run the pipeline
-uv run python src/pipeline.py 
+```uv run python src/pipeline.py ```
 
 # General Checks that data was populated to each table
+```
 uv run src/sql_queries/general_checks_table_population.py
+```
 
 # SQL Queries
+```
 uv run src/sql_queries/1_count_offer_activation_by_customer.py
+```
+```
 uv run src/sql_queries/2_customers_not_active_2_months_back.py
+```
+```
 uv run src/sql_queries/3_conversion_rate_activated_complete_by_customer.py
+```
+```
 uv run src/sql_queries/4_total_redemption_by_customer.py
-
+```
 
 # Project structure 
+```text
 ibotta_takehome/
 ├── pyproject.toml
 ├── src/
@@ -43,6 +53,7 @@ ibotta_takehome/
 │   ├── utils/
 ├── tests/ # unit tests for models, pipeline utils and db functions
 ├── pipeline.py # pipeline entry point
+```
 
 I decided to build out a streamline data pipeline to insert into a sql lite database.
 
